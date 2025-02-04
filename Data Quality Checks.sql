@@ -5,17 +5,17 @@
 -- Check for null values in Receipts
 SELECT COUNT(*) AS missing_receipt_data
 FROM Receipts
-WHERE userId IS NULL OR dateScanned IS NULL OR totalSpent IS NULL;
+WHERE user_id IS NULL OR dateScanned IS NULL OR totalSpent IS NULL;
 
 -- Check for null values in Users
 SELECT COUNT(*) AS missing_user_data
 FROM Users
-WHERE _id IS NULL OR createdDate IS NULL;
+WHERE user_id IS NULL OR createdDate IS NULL;
 
 -- Check for null values in Brands
 SELECT COUNT(*) AS missing_brand_data
 FROM Brands
-WHERE _id IS NULL OR brandCode IS NULL;
+WHERE brand_id IS NULL OR brandCode IS NULL;
 
 -------2.Inconsistent Data in rewardsReceiptStatus
 -- Check for invalid status values
@@ -28,7 +28,7 @@ HAVING rewardsReceiptStatus NOT IN ('Accepted', 'Rejected', 'Pending', 'Finished
 -- Find duplicate receipts
 SELECT receipt_id, COUNT(*) AS duplicate_count
 FROM Receipts
-GROUP BY _id
+GROUP BY receipt_id
 HAVING COUNT(*) > 1;
 
 -- Find duplicate users
@@ -40,7 +40,7 @@ HAVING COUNT(*) > 1;
 -- Find duplicate brands
 SELECT brand_id, COUNT(*) AS duplicate_count
 FROM Brands
-GROUP BY _id
+GROUP BY brand_id
 HAVING COUNT(*) > 1;
 
 --4. Referential Integrity Checks
