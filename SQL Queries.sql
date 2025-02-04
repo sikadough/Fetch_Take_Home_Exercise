@@ -41,7 +41,7 @@ JOIN Brands b
 ON b.brandCode = ri.brandCode 
 WHERE createdDate >= DATEDADD(month, -6, GETDATE())
 GROUP BY b.name
-ORDER BY 2 DESC;
+ORDER BY Tot_Spend DESC;
 
 -- 6. Which brand has the most transactions among users who were created within the past 6 months
 
