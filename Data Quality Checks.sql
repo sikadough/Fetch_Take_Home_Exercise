@@ -1,7 +1,7 @@
 
----------------SQL Queries for Data Quality Checks
+----------------------------------SQL Queries for Data Quality Checks-----------------------------------
 
---1. Missing Data in Critical Fields
+-------1. Missing Data in Critical Fields
 -- Check for null values in Receipts
 SELECT COUNT(*) AS missing_receipt_data
 FROM Receipts
